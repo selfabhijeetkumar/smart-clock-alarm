@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Digital Clock with Alarm - A beginner-friendly clock with alarm functionality">
+    <title>Digital Clock with Alarm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Theme Toggle -->
+        <button 
+            id="theme-toggle" 
+            class="theme-toggle" 
+            aria-label="Toggle dark/light theme"
+            title="Toggle theme">
+            <span class="theme-icon" aria-hidden="true">🌙</span>
+        </button>
+
+        <!-- Main Clock Display -->
+        <main class="clock-container" role="main">
+            <div class="clock-display" aria-live="polite" aria-atomic="true">
+                <time id="clock-time" class="time" aria-label="Current time">
+                    <span id="hours">12</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+                    <span id="ampm" class="ampm">AM</span>
+                </time>
+                <div id="clock-date" class="date" aria-label="Current date">
+                    Monday, January 1, 2025
+                </div>
+            </div>
+
+            <!-- Alarm Section -->
+            <section class="alarm-section" aria-labelledby="alarm-heading">
+                <h2 id="alarm-heading" class="section-title">Alarm</h2>
+                
+                <div class="alarm-controls">
+                    <!-- Time Input -->
+                    <div class="alarm-input-group">
+                        <label for="alarm-time" class="input-label">Set Alarm Time</label>
+                        <input 
+                            type="time" 
+                            id="alarm-time" 
+                            class="alarm-time-input"
+                            aria-describedby="alarm-help"
+                        >
+                        <span id="alarm-help" class="visually-hidden">
+                            Enter the time you want the alarm to trigger
+                        </span>
+                    </div>
+
+                    <!-- Alarm Buttons -->
+                    <div class="alarm-buttons">
+                        <button 
+                            id="set-alarm" 
+                            class="btn btn-primary"
+                            aria-label="Set alarm"
+                        >
+                            Set Alarm
+                        </button>
+                        <button 
+                            id="clear-alarm" 
+                            class="btn btn-secondary"
+                            aria-label="Clear alarm"
+                            disabled
+                        >
+                            Clear
+                        </button>
+                        <button 
+                            id="stop-alarm" 
+                            class="btn btn-danger"
+                            aria-label="Stop alarm"
+                            disabled
+                        >
+                            Stop
+                        </button>
+                    </div>
+
+                    <!-- Alarm Status -->
+                    <div 
+                        id="alarm-status" 
+                        class="alarm-status" 
+                        role="status" 
+                        aria-live="polite"
+                    >
+                        No alarm set
+                    </div>
+                </div>
+            </section>
+
+            <!-- Alarm Info for Future Multiple Alarms -->
+            <aside class="alarm-info" aria-labelledby="info-heading">
+                <h3 id="info-heading" class="info-title">Extension Ready</h3>
+                <p class="info-text">
+                    This clock supports multiple alarms. 
+                    Data structure prepared for future expansion.
+                </p>
+                <div id="alarm-list" class="alarm-list" aria-label="Current alarms list">
+                    <!-- Future: Multiple alarms list will go here -->
+                </div>
+            </aside>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>Digital Clock with Alarm &copy; 2025</p>
+        </footer>
+    </div>
+
+    <!-- Audio Element for Alarm Sound -->
+    <audio 
+        id="alarm-audio" 
+        preload="auto"
+        aria-hidden="true"
+    >
+        <source src="alarm.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
